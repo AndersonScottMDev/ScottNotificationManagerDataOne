@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: ScottNotificationManagerDataOne
+  datasource:
+    url: jdbc:mysql://localhost:3306/store?createDatabaseIfNotExist=true
+    username: root
+    password: five2one
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 10
+  jpa:
+    hibernate:
+      ddl-auto: update # Change 'validate' to 'update' so Hibernate can create missing pieces
+    properties:
+      hibernate:
+          # This is the correct Spring Boot 3 / Hibernate 6 property
+      id:
+        db_structure_naming_strategy: legacy
+    flyway:
+      enabled: true
+      baseline-on-migrate: true
+      repair-on-migrate: true
+      # Ensures Flyway uses the same datasource defined above
+      url: ${spring.datasource.url}
+      user: ${spring.datasource.username}
+      password: ${spring.datasource.password}
+
+email-settings:
+  port: 9890
+  host: https://smtp.gmail.com
+  enabled: true
+
+
+
