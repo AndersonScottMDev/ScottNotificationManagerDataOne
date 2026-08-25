@@ -1,6 +1,5 @@
 package com.scott.notification.manager;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
@@ -19,7 +18,7 @@ public class ScottNotificationManagerNewApplication {
 //        userService.registerUser(new User(2, "PeterGibbons69@gmail.com", "Peter Gibbons", "Five2OneB"));
 
 
-        SpringApplication.run(ScottNotificationManagerNewApplication.class, args);
+//        SpringApplication.run(ScottNotificationManagerNewApplication.class, args);
 
         User user = User.builder()
                 .name("John")
@@ -51,8 +50,20 @@ public class ScottNotificationManagerNewApplication {
 
         user.getTags()
                 .add(tag);
+        tag.getUsers()
+                .add(user);
+
+//        System.out.println(tag.toString());
+//        System.out.println(user.toString());
 
 
+        Profile profile = Profile.builder()
+                .bio("bio")
+                .build();
+
+        user.setProfile(profile);
+        profile.setUser(user);
+        System.out.println(user);
     }
 
 }

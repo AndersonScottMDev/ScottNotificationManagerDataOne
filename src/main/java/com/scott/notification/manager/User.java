@@ -48,6 +48,8 @@ public class User {
     @Builder.Default
     private Set<Tag> tags = new HashSet<>();
 
+    @OneToOne(mappedBy = "user")
+    private Profile profile;
 
     public void addAddress(Address address) {
         addresses.add(address);
@@ -68,5 +70,11 @@ public class User {
                 .add(this);
     }
 
+//    public void removeTag(String tagName) {
+//
+//        tags.remove(tag);
+//        tag.getUsers()
+//                .add(this);
+//    }
 
 }
