@@ -9,14 +9,14 @@ spring:
     hikari:
       connection-timeout: 20000
       maximum-pool-size: 10
-  jpa:
-    hibernate:
-      ddl-auto: update # Change 'validate' to 'update' so Hibernate can create missing pieces
-    properties:
-      hibernate:
-          # This is the correct Spring Boot 3 / Hibernate 6 property
-      id:
-        db_structure_naming_strategy: legacy
+    #  jpa:
+    #    hibernate:
+    #      ddl-auto: create # Change 'validate' to 'update' so Hibernate can create missing pieces
+    #    properties:
+    #      hibernate:
+    #      # This is the correct Spring Boot 3 / Hibernate 6 property
+    #      id:
+    #        db_structure_naming_strategy: legacy
     flyway:
       enabled: true
       baseline-on-migrate: true

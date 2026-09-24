@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Getter
 @ToString
 @Entity
-@Table(name = "profile")
+@Table(name = "profiles")
 public class Profile {
 
     @Id
@@ -21,7 +21,8 @@ public class Profile {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "bio")
+    @Column(name = "bio",
+            nullable = false)
     private String bio;
 
     @Column(name = "phone_number")
